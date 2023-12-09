@@ -1,4 +1,4 @@
-module github.com/jh125486/CSCE4600
+module github.com/brendali366/CSCE4600Proj2
 
 go 1.19
 
