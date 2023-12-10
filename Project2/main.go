@@ -7,9 +7,10 @@ import (
 	"os"
 	"os/exec"
 	"os/user"
+	"strconv"
 	"strings"
 
-	"github.com/brendali366/CSCE4600Proj2/builtins"
+	"github.com/brendali366/CSCE4600Proj2/Project2/builtins"
 )
 
 func main() {
@@ -19,8 +20,9 @@ func main() {
 
 func runLoop(r io.Reader, w, errW io.Writer, exit chan struct{}) {
 	var (
-		input    string
-		err      error
+		input string
+		err   error
+
 		readLoop = bufio.NewReader(r)
 	)
 	for {
@@ -78,9 +80,38 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.ChangeDirectory(args...)
 	case "env":
 		return builtins.EnvironmentVariables(w, args...)
+	case "echo":
+		builtins.EchoCommands(args...)
+
+	case "alias":
+		return builtins.AliasCommand(args...)
+
+	case "bye":
+		os.Exit(0)
+		//builtins.ByeCommand(args...)
+
+	case "repeat":
+		str := args[2]
+		//fmt.Println(input)
+		num, err := strconv.Atoi(args[0])
+		for i := 0; i < num; i++ {
+			fmt.Println(str)
+			if err != nil {
+				fmt.Println("Error:", err)
+				return err
+			}
+		}
+	case "logout":
+		os.Exit(1)
+
+	case "type":
+		builtins.TypeCommand(args...)
+		return nil
+
 	case "exit":
 		exit <- struct{}{}
 		return nil
+
 	}
 
 	return executeCommand(name, args...)
