@@ -7,7 +7,8 @@ import (
 	"os"
 	"os/exec"
 	"os/user"
-	"strconv"
+
+	//"strconv"
 	"strings"
 
 	"github.com/brendali366/CSCE4600Proj2/Project2/builtins"
@@ -87,12 +88,13 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.AliasCommand(args...)
 
 	case "bye":
-		os.Exit(0)
-		//builtins.ByeCommand(args...)
+		builtins.ByeCommand(args...)
 
 	case "repeat":
-		str := args[2]
-		//fmt.Println(input)
+		builtins.RepeatCommand(args...)
+
+		/*str := args[2]
+		//fmt.Println(input)   -> for testing
 		num, err := strconv.Atoi(args[0])
 		for i := 0; i < num; i++ {
 			fmt.Println(str)
@@ -101,8 +103,9 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 				return err
 			}
 		}
+		*/
 	case "logout":
-		os.Exit(1)
+		builtins.LogoutCommand(args...)
 
 	case "type":
 		builtins.TypeCommand(args...)

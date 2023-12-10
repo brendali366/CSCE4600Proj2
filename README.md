@@ -1,18 +1,28 @@
-# Project Files CSCE 4600
-[![golangci-lint](https://github.com/jh125486/CSCE4600/actions/workflows/golangci-lint.yml/badge.svg?branch=main)](https://github.com/jh125486/CSCE4600/actions/workflows/golangci-lint.yml)
-![Coverage](https://img.shields.io/badge/Coverage-81.3%25-brightgreen)
+Brenda Li
+CSCE 4600
+github.com/brendali366
 
-## Operating Systems
+For the commands I decided to go with :
 
-Concepts in operating system analysis and design. General topics of process, resource and file management are presented and analyzed in the context of different system architectures and performance constraints.
+1. Logout 
+    -The command logs out of the Terminal
+    -When I tried this, it fully closes the terminal on VSC
+2. Echo
+    - It takes in the strings and repeats it. 
+3. Bye -> tcsh builtin
+    -It is another way to exit that is only in tcsh builtin.
+    -It exits the terminal.
+4. Repeat
+    -repeats the command for however many times indicated 
+    - example given on website:
+        -> repeat n command; Execute n instances of command
+    -When I tested this, I used:
+        - repeat 4 echo hi 
+5. Type
+    - type is a bash built in command 
+    -it tells you the type of command you are asking it
+    - for example: type exit will tell you exit is a built in command
 
-## [Project 1: Process Scheduler](https://github.com/jh125486/CSCE4600/tree/main/Project1)
+6. Alias -> Bash
+    - I was trying to get Alias to work to where it takes in an alias and when ever the alias is called, it will execute the command. 
 
-
-You can't take an operating systems class without programming a process scheduler.  It's against the Geneva code or something.
-Design a program that implements several different CPU scheduling algorithms.
-
-
-## [Project 2: Shell Builtins](https://github.com/jh125486/CSCE4600/tree/main/Project2)
-
-A twist on a classic "build your own shell". The *very* basic shell is already written, but you will choose five (5) shell builtins (or shell-adjacent) commands to rewrite into Go, and integrate into the Go shell.
